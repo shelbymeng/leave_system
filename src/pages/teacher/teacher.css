@@ -1,0 +1,17 @@
+.spanFont {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 700;
+  }
+  .rowConfig {
+    padding: 10px 0;
+  }
+  .btnConfig {
+    margin: 0 10px;
+  }
+  .rowConfig {
+    margin: 20px 0;
+  }
+  

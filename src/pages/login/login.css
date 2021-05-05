@@ -1,0 +1,16 @@
+.config{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.mgt20{
+    margin-top: 20px;
+}
+.mgl20{
+    margin-left: 20px;
+}
+.flexRowBetween{
+    display: flex;
+    justify-content: flex-end;
+}

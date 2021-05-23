@@ -30,6 +30,22 @@ function handleRole(role: EUserRole) {
       return '离校审批';
     case EUserRole.ADMIN:
       return '审批列表';
+    case EUserRole.GUARD:
+      return '审批列表';
   }
 }
-export { handleInfoState, handleApproveState, handleRole };
+function handleRoleName(role: EUserRole) {
+  switch (role) {
+    case EUserRole.STUDENT:
+      return '学生';
+    case EUserRole.TEACHER:
+      return '教师';
+    case EUserRole.ADMIN:
+      return '管理员';
+    case EUserRole.COUNSELOR:
+      return '辅导员';
+    case EUserRole.GUARD:
+      return '保安';
+  }
+}
+export { handleInfoState, handleApproveState, handleRole, handleRoleName };

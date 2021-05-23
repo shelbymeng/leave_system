@@ -23,8 +23,8 @@ export default defineConfig({
         //   component: '@/pages/adminService',
         // },
         {
-          path: '/adminService',
-          component: '@/pages/adminService',
+          path: '/comment',
+          component: '@/pages/comment',
         },
         {
           path: '/teacher',
@@ -39,8 +39,20 @@ export default defineConfig({
           component: '@/pages/counselor/counselor',
         },
         {
+          path: '/admin',
+          component: '@/pages/counselor/counselor',
+        },
+        {
+          path: '/guard',
+          component: '@/pages/counselor/counselor',
+        },
+        {
           path: '/news',
           component: '@/pages/news',
+        },
+        {
+          path: '/person',
+          component: '@/pages/person',
         },
       ],
     },

@@ -36,6 +36,7 @@ export default () => {
           }
           allowClear
           onChange={(e) => setAccount(+e.target.value.trim())}
+          onPressEnter={login}
         ></Input>
         <Input.Password
           className={styles.mgt20}
@@ -44,6 +45,7 @@ export default () => {
           }
           allowClear
           onChange={(e) => setPsw(e.target.value.trim())}
+          onPressEnter={login}
         ></Input.Password>
         <div className={`${styles.mgt20} ${styles.flexRowBetween}`}>
           <Button type="primary" onClick={login}>

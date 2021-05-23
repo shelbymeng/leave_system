@@ -4,6 +4,7 @@ import styles from './index.css';
 import { history } from 'umi';
 import sessionStorageService from '@/service/sessionStorageService';
 import EUserRole from '../ts/enum/EUserRole';
+import { handleRoleName } from '@/tools/handleParams';
 const { confirm } = Modal;
 function NHeader() {
   const user = sessionStorageService.getUser();
@@ -25,7 +26,7 @@ function NHeader() {
     <header className={styles.NHeader}>
       <span style={{ color: '#ffffff' }}>在线请假平台</span>
       <div>
-        <span>{user.username}</span>
+        <span>{`${handleRoleName(user.role)}：${user.username}`}</span>
         {user.role === EUserRole.TEACHER ||
         user.role === EUserRole.COUNSELOR ? (
           <Button type="link">

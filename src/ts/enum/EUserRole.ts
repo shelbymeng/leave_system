@@ -3,5 +3,6 @@ enum EUserRole {
   COUNSELOR = 'counselor',
   TEACHER = 'teacher',
   ADMIN = 'admin',
+  GUARD = 'guard',
 }
 export default EUserRole;

@@ -6,6 +6,7 @@ import NewInput from '../../component/newInput/NewInput';
 import styles from './counselor.css';
 import IState from '../../ts/interface/IState';
 import sessionStorageService from '@/service/sessionStorageService';
+import EUserRole from '@/ts/enum/EUserRole';
 const { Option } = Select;
 export default () => {
   const columns = [
@@ -173,23 +174,29 @@ export default () => {
             </Col>
           </Row>
         </div>
-        <Select style={{ width: 100 }} onChange={changeInfoState}>
-          <Option value="同意">同意</Option>
-          <Option value="拒绝">拒绝</Option>
-        </Select>
-        <Button
-          type="primary"
-          onClick={() =>
-            approve({
-              orderId: studentInfo?.orderId!,
-              state: studentInfo?.state!,
-              approveState: approveType,
-              approver: user.username,
-            })
-          }
-        >
-          提交
-        </Button>
+        {user.role !== EUserRole.GUARD ? (
+          <div>
+            <Select style={{ width: 100 }} onChange={changeInfoState}>
+              <Option value="同意">同意</Option>
+              <Option value="拒绝">拒绝</Option>
+            </Select>
+            <Button
+              type="primary"
+              onClick={() =>
+                approve({
+                  orderId: studentInfo?.orderId!,
+                  state: studentInfo?.state!,
+                  approveState: approveType,
+                  approver: user.username,
+                })
+              }
+            >
+              提交
+            </Button>
+          </div>
+        ) : (
+          ''
+        )}
       </Modal>
     </div>
   );

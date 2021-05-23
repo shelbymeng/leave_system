@@ -22,16 +22,18 @@ function NSider() {
           defaultSelectedKeys={['2']}
           style={{ height: '100%' }}
         >
-          <Menu.Item key="1" onClick={() => history.push('/adminService')}>
+          <Menu.Item key="1" onClick={() => history.push('/comment')}>
             广场
           </Menu.Item>
           <Menu.Item key="2" onClick={() => history.push(`/${pathname}`)}>
             {roleName}
           </Menu.Item>
-          <Menu.Item key="3" onClick={() => history.push('./news')}>
+          <Menu.Item key="3" onClick={() => history.push('/news')}>
             校园新闻
           </Menu.Item>
-          <Menu.Item key="4">option4</Menu.Item>
+          <Menu.Item key="4" onClick={() => history.push('/person')}>
+            个人主页
+          </Menu.Item>
         </Menu>
       </Sider>
     </div>

@@ -7,9 +7,33 @@ import styles from './counselor.css';
 import IState from '../../ts/interface/IState';
 import sessionStorageService from '@/service/sessionStorageService';
 import EUserRole from '@/ts/enum/EUserRole';
+import { history } from 'umi';
 const { Option } = Select;
 export default () => {
+  const orderId =
+    history.location.query &&
+    ((history.location.query.orderId as unknown) as Array<string>);
   const columns = [
+    {
+      title: '编号',
+      key: 'orderuId',
+      dataIndex: 'orderId',
+      // onFilter: (value:string, record:IStudnetLeaveInfo) =>
+      // record[dataIndex]
+      //   ? record[dataIndex].toString().toLowerCase().includes(value.toLowerCase())
+      //   : '',
+      render: (text: string, record: IStudnetLeaveInfo) => {
+        return {
+          props: {
+            className:
+              orderId && orderId.find((item) => item === record.orderId)
+                ? styles.yellow
+                : '',
+          },
+          children: <span>{text}</span>,
+        };
+      },
+    },
     {
       title: '学生id',
       key: 'stuId',
@@ -116,6 +140,7 @@ export default () => {
 
   useEffect(() => {
     getStudentData();
+    console.log(history.location.query);
   }, []);
   return (
     <div>

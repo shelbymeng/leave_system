@@ -43,6 +43,10 @@ export default defineConfig({
           component: '@/pages/counselor/counselor',
         },
         {
+          path: '/otherDeal',
+          component: '@/pages/admin/admin',
+        },
+        {
           path: '/guard',
           component: '@/pages/counselor/counselor',
         },

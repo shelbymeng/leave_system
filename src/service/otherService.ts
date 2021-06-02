@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { IOtherEnter, IOtherInfo } from '../ts/interface/Other';
 import moment from 'moment';
+import IState from '../ts/interface/IState';
 const url = 'http://127.0.0.1:3001';
 
 const dateFormat = 'YYYY-MM-DD HH:mm:ss';
@@ -41,4 +42,16 @@ async function orderEnterSchool(params: IOtherEnter) {
     };
   }
 }
-export { getOtherInfoService, orderEnterSchool };
+async function approveOtherService(params: IState) {
+  const res = await axios.post(`${url}/approveOther`, params);
+  if (res.data.error === 0) {
+    return {
+      error: 0,
+    };
+  } else {
+    return {
+      error: res.data.error,
+    };
+  }
+}
+export { getOtherInfoService, orderEnterSchool, approveOtherService };

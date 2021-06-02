@@ -28,6 +28,13 @@ function NSider() {
           <Menu.Item key="2" onClick={() => history.push(`/${pathname}`)}>
             {roleName}
           </Menu.Item>
+          {userInfo.role && userInfo.role === 'admin' ? (
+            <Menu.Item key="5" onClick={() => history.push('/otherDeal')}>
+              校外人员审批
+            </Menu.Item>
+          ) : (
+            ''
+          )}
           <Menu.Item key="3" onClick={() => history.push('/news')}>
             校园新闻
           </Menu.Item>

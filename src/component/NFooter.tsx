@@ -5,7 +5,7 @@ const { Footer } = Layout;
 function NFooter() {
   return (
     <div>
-      @sjdbfkjabdskfjabsdkj
+      天津理工大学请假审批系统
     </div>
   );
 }

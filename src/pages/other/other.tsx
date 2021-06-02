@@ -78,7 +78,6 @@ export default () => {
     }
     if (otherRes.error === 0) {
       setOtherInfo(otherRes.data);
-      getOtherInfo();
     }
   }
   async function onSubmit() {

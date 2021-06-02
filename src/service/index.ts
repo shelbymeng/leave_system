@@ -296,6 +296,22 @@ async function getNewService() {
     data: newArr,
   };
 }
+/**
+ * 获取指定教师离校信息
+ */
+async function getPickInfoService(account: number) {
+  const res = await axios.post(`${url}/getPickInfo`, { account: account });
+  if (res.data.error === 0) {
+    return {
+      error: 0,
+      data: res.data.data,
+    };
+  } else {
+    return {
+      data: [],
+    };
+  }
+}
 export {
   userLogin,
   getStudentInfos,
@@ -309,4 +325,5 @@ export {
   getReplyService,
   addReplyService,
   getNewService,
+  getPickInfoService,
 };

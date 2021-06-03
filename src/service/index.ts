@@ -255,6 +255,21 @@ async function getReplyService() {
   };
 }
 /**
+ * 删除留言
+ * @param params
+ * @returns
+ */
+async function deleteCommentService(commentId: string) {
+  const res = await axios.post(`${url}/deleteComment`, {
+    commentId: commentId,
+  });
+  if (res.data.error === 0) {
+    return {
+      error: 0,
+    };
+  }
+}
+/**
  * 提交留言回复
  * @param params
  */
@@ -326,4 +341,5 @@ export {
   addReplyService,
   getNewService,
   getPickInfoService,
+  deleteCommentService,
 };

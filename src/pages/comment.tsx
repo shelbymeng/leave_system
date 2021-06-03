@@ -7,6 +7,7 @@ import {
   addCommentService,
   getReplyService,
   addReplyService,
+  deleteCommentService,
 } from '../service/index';
 import sessionStorageService from '@/service/sessionStorageService';
 import IComments from '../ts/interface/IComments';
@@ -31,7 +32,7 @@ export default () => {
     const params = {
       commentId: `COMMENT${new Date().getTime()}`,
       account: user.account,
-      author: 'adsfa',
+      author: user.username,
       content: comment,
       datetime: new Date().getTime(),
     };
@@ -82,6 +83,15 @@ export default () => {
     const num = replys?.filter((reply) => reply.commentId === commentId).length;
     return num ? num : 0;
   }
+  //  删除留言
+  async function deleteComment(e: any, commentId: string) {
+    e.stopPropagation();
+    const res = await deleteCommentService(commentId);
+    if (res?.error === 0) {
+      message.success('删除成功');
+      getComments();
+    }
+  }
   useEffect(() => {
     getComments();
     getReplys();
@@ -100,10 +110,22 @@ export default () => {
               style={{ width: '100%' }}
               destroyInactivePanel
               expandIcon={() => (
-                <Button type="link">
-                  <MessageOutlined />
-                  <span>{getReplyNum(item.commentId)}</span>
-                </Button>
+                <div style={{ padding: 0 }}>
+                  <Button type="link">
+                    <MessageOutlined />
+                    <span>{getReplyNum(item.commentId)}</span>
+                  </Button>
+                  {user && user.role === 'admin' ? (
+                    <Button
+                      type="link"
+                      onClick={(e) => deleteComment(e, item.commentId)}
+                    >
+                      删除
+                    </Button>
+                  ) : (
+                    ''
+                  )}
+                </div>
               )}
             >
               <Panel

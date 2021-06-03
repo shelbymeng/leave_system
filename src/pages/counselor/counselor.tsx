@@ -18,10 +18,6 @@ export default () => {
       title: '编号',
       key: 'orderuId',
       dataIndex: 'orderId',
-      // onFilter: (value:string, record:IStudnetLeaveInfo) =>
-      // record[dataIndex]
-      //   ? record[dataIndex].toString().toLowerCase().includes(value.toLowerCase())
-      //   : '',
       render: (text: string, record: IStudnetLeaveInfo) => {
         return {
           props: {

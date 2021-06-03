@@ -6,9 +6,29 @@ import NewInput from '../../component/newInput/NewInput';
 import styles from './teacher.css';
 import IState from '../../ts/interface/IState';
 import sessionStorageService from '@/service/sessionStorageService';
+import { history } from 'umi';
 const { Option } = Select;
 export default () => {
+  const orderId =
+    history.location.query &&
+    ((history.location.query.orderId as unknown) as Array<string>);
   const columns = [
+    {
+      title: '编号',
+      key: 'orderuId',
+      dataIndex: 'orderId',
+      render: (text: string, record: IStudnetLeaveInfo) => {
+        return {
+          props: {
+            className:
+              orderId && orderId.find((item) => item === record.orderId)
+                ? styles.yellow
+                : '',
+          },
+          children: <span>{text}</span>,
+        };
+      },
+    },
     {
       title: '学生id',
       key: 'stuId',

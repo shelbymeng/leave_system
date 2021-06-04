@@ -17,6 +17,8 @@ export default () => {
       title: '编号',
       key: 'orderuId',
       dataIndex: 'orderId',
+      width: 200,
+      fixed: true,
       render: (text: string, record: IStudnetLeaveInfo) => {
         return {
           props: {
@@ -33,11 +35,13 @@ export default () => {
       title: '学生id',
       key: 'stuId',
       dataIndex: 'stuId',
+      width: 100,
     },
     {
       title: '学生姓名',
       key: 'stuName',
       dataIndex: 'stuName',
+      width: 100,
       render: (text: string, record: IStudnetLeaveInfo) => (
         <Button type="link" onClick={() => getDetailInfo(record.orderId)}>
           {text}
@@ -48,41 +52,49 @@ export default () => {
       title: '学生专业',
       key: 'major',
       dataIndex: 'major',
+      width: 100,
     },
     {
       title: '学生学院',
       key: 'college',
       dataIndex: 'college',
+      width: 100,
     },
     {
       title: '离校理由',
       key: 'reason',
       dataIndex: 'reason',
+      width: 100,
     },
     {
       title: '离校时间',
       key: 'startTime',
       dataIndex: 'startTime',
+      width: 200,
     },
     {
       title: '返校时间',
       key: 'endTime',
       dataIndex: 'endTime',
+      width: 200,
     },
     {
       title: '请假状态',
       key: 'state',
       dataIndex: 'state',
+      width: 100,
     },
     {
       title: '批准状态',
       key: 'approveState',
       dataIndex: 'approveState',
+      width: 100,
     },
     {
       title: '批准教师',
       key: 'approver',
       dataIndex: 'approver',
+      width: 100,
     },
   ];
 
@@ -142,6 +154,8 @@ export default () => {
         columns={columns}
         dataSource={studentInfos}
         pagination={{ pageSize: 5 }}
+        scroll={{ x: 1500 }}
+        sticky
       ></Table>
       <Modal
         visible={modalState}
